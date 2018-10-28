@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col s5">
+      <div class="card">
+        <div class="card-content">
+          <form #userForm="ngForm" (ngSubmit)="addUser(userForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+            <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" name="name" #name="ngModel" [(ngModel)]="userService.selectedUser.name" placeholder="enter your name">
+                </div>
+                <div class="input-field col s12">
+                  <input type="number" name="age" #age="ngModel" [(ngModel)]="userService.selectedUser.age" placeholder="enter your age">
+                </div>
+                <div class="card-action">
+                    <div class="input-field col s12">
+                      <button class="btn right" style="margin-left:2px" (click)="resetForm(userForm)" >Clean</button>
+                      <button class="btn right">Save</button>
+                    </div>
+                  </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col s7">
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Operations</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userService.users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.age }}</td>
+            <td>
+              <a (click) = "editUser(user)">
+                <i class="material-icons">edit</i>
+              </a>
+              <a (click) = "deleteUser(user._id)">
+                  <i class="material-icons">delete</i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

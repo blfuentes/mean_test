@@ -7,7 +7,10 @@ export class UserController{
     }
     
     public createUser = async (req, res) =>{
-        const user = new User(req.body);
+        const user = new User({
+            name: req.body.name,
+            age: req.body.age
+        });
         await user.save();
         console.log(user);
 
