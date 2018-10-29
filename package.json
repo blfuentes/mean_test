@@ -8,7 +8,9 @@
     "start": "npm run serve",
     "serve": "node dist/server.js",
     "dev": "nodemon",
-    "debug": "nodemon"
+    "debug": "nodemon",
+    "watch:debug": "nodemon --inspect=5858 -e ts,tsx --exec node -r ts-node/register ./src/server/server.ts",
+    "watch:server": "nodemon"
   },
   "keywords": [],
   "author": "",

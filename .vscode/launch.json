@@ -5,14 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Current TS File (Server)",
             "type": "node",
             "request": "launch",
-            "name": "Server",
-            "runtimeExecutable": "npm",
-            "runtimeArgs": [
-                "run-script",
-                "debug"
-            ]
+            "args": ["${relativeFile}"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome (FrontEnd)",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
