@@ -1,1 +1,5 @@
-mean_test
+Test project with MEAN Stack
+- MongoDB
+- Express
+- Angular
+- Nodejs
