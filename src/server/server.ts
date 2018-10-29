@@ -17,8 +17,6 @@ app.use(cors({origin: "http://localhost:4200"}));
 // Routes
 app.use("/api/user", require("./routes/user.routes"))
 
-
-
 // Starting the server
 app.listen(app.get("port"), () => {
     console.log("Server on port ", app.get("port"));
